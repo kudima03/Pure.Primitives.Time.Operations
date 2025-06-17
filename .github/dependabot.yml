@@ -2,8 +2,8 @@ version: 2
 updates:
 - package-ecosystem: nuget
   directories:
-    - "src/Pure.Primitives.Time.Operations"
-    - "src/Tests/Pure.Primitives.Time.Operations.Tests"
+    - "src/${{ github.event.repository.name }}"
+    - "src/Tests/${{ github.event.repository.name }}.Tests"
   schedule:
     interval: daily
 - package-ecosystem: "github-actions"
