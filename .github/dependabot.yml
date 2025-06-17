@@ -2,7 +2,8 @@ version: 2
 updates:
 - package-ecosystem: nuget
   directories:
-    - "**/*.csproj"
+    - "src/Pure.Primitives.Time.Operations"
+    - "src/Tests/Pure.Primitives.Time.Operations.Tests"
   schedule:
     interval: daily
 - package-ecosystem: "github-actions"
