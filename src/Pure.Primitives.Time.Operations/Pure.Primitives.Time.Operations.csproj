@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <PackageId>Pure.Primitives.Time.Operations</PackageId>
+    <RootNamespace>Pure.Primitives.Time.Operations</RootNamespace>
+    <AssemblyName>Pure.Primitives.Time.Operations</AssemblyName>
+    <Authors>Dmitry Kurochkin</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/kudima03/Pure.Primitives.Time.Operations</PackageProjectUrl>
+  </PropertyGroup>
+
 </Project>
