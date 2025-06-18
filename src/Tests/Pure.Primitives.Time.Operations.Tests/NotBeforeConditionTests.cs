@@ -6,7 +6,7 @@ namespace Pure.Primitives.Time.Operations.Tests;
 
 public sealed record NotBeforeConditionTests
 {
-     [Fact]
+    [Fact]
     public void TakesPositiveResultOnSameValues()
     {
         IBool equality = new NotBeforeCondition(
