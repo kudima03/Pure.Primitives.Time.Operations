@@ -31,7 +31,7 @@ public sealed record AfterCondition : IBool
 
             while (enumerator.MoveNext())
             {
-                if (comparer.Compare(previous, enumerator.Current) < 1)
+                if (comparer.Compare(previous, enumerator.Current) >= 0)
                 {
                     return false;
                 }
