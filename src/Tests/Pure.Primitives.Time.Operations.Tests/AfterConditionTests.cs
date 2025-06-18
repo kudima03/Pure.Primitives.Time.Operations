@@ -10,11 +10,11 @@ public sealed record AfterConditionTests
     public void TakesNegativeResultOnSameValues()
     {
         IBool equality = new AfterCondition(
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))));
+            new Time(new TimeOnly(1, 2, 3, 4, 5)),
+            new Time(new TimeOnly(1, 2, 3, 4, 5)),
+            new Time(new TimeOnly(1, 2, 3, 4, 5)),
+            new Time(new TimeOnly(1, 2, 3, 4, 5)),
+            new Time(new TimeOnly(1, 2, 3, 4, 5)));
 
         Assert.False(equality.BoolValue);
     }
@@ -23,8 +23,8 @@ public sealed record AfterConditionTests
     public void TakesNegativeResultOnTwoSameValues()
     {
         IBool equality = new AfterCondition(
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))));
+            new Time(new TimeOnly(1, 2, 3, 4, 5)),
+            new Time(new TimeOnly(1, 2, 3, 4, 5)));
 
         Assert.False(equality.BoolValue);
     }
@@ -57,7 +57,8 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 2, 1, 1, 1)),
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
-            new Time(new TimeOnly(1, 1, 1, 1, 2)));
+            new Time(new TimeOnly(1, 1, 1, 1, 2)),
+            new Time(new TimeOnly(1, 1, 1, 1, 1)));
 
         Assert.True(equality.BoolValue);
     }
