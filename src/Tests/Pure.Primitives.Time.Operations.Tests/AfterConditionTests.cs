@@ -30,27 +30,21 @@ public sealed record AfterConditionTests
     }
 
     [Fact]
-    public void TakesNegativeResultOnAscending()
+    public void TakesTrueResultOnAscending()
     {
         IBool equality = new AfterCondition(
             new Time(new TimeOnly(1, 1, 1, 1, 1)),
-            new Time(new UShort(1),
-                new UShort(1),
-                new UShort(1),
-                new UShort(1),
-                new UShort(1),
-                new UShort(1)),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 2, 1, 1, 1)),
             new Time(new TimeOnly(2, 1, 1, 1, 1)));
 
-        Assert.False(equality.BoolValue);
+        Assert.True(equality.BoolValue);
     }
 
     [Fact]
-    public void TakesPositiveResultOnDescending()
+    public void TakesNegativeResultOnDescending()
     {
         IBool equality = new AfterCondition(
             new Time(new TimeOnly(2, 1, 1, 1, 1)),
@@ -60,7 +54,7 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
             new Time(new TimeOnly(1, 1, 1, 1, 1)));
 
-        Assert.True(equality.BoolValue);
+        Assert.False(equality.BoolValue);
     }
 
     [Fact]
