@@ -68,12 +68,12 @@ public sealed record EqualConditionTests
     [Fact]
     public void ThrowsExceptionOnGetHashCode()
     {
-        Assert.Throws<NotSupportedException>(()=> new EqualCondition(new RandomTime()).GetHashCode());
+        Assert.Throws<NotSupportedException>(() => new EqualCondition(new RandomTime()).GetHashCode());
     }
 
     [Fact]
     public void ThrowsExceptionOnToString()
     {
-        Assert.Throws<NotSupportedException>(()=> new EqualCondition(new RandomTime()).ToString());
+        Assert.Throws<NotSupportedException>(() => new EqualCondition(new RandomTime()).ToString());
     }
 }
