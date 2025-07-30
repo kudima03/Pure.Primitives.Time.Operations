@@ -7,9 +7,7 @@ public sealed record AfterCondition : IBool
 {
     private readonly IEnumerable<ITime> _values;
 
-    public AfterCondition(params ITime[] values) : this(values.AsReadOnly()) { }
-
-    public AfterCondition(IEnumerable<ITime> values)
+    public AfterCondition(params IEnumerable<ITime> values)
     {
         _values = values;
     }
