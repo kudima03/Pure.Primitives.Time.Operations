@@ -1,4 +1,4 @@
-﻿using Pure.Primitives.Abstractions.Bool;
+using Pure.Primitives.Abstractions.Bool;
 using Pure.Primitives.Number;
 using Pure.Primitives.Random.Time;
 
@@ -14,7 +14,8 @@ public sealed record BeforeConditionTests
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
-            new Time(new TimeOnly(1, 2, 3, 4, 5)));
+            new Time(new TimeOnly(1, 2, 3, 4, 5))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -24,7 +25,8 @@ public sealed record BeforeConditionTests
     {
         IBool equality = new BeforeCondition(
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
-            new Time(new TimeOnly(1, 2, 3, 4, 5)));
+            new Time(new TimeOnly(1, 2, 3, 4, 5))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -34,17 +36,20 @@ public sealed record BeforeConditionTests
     {
         IBool equality = new BeforeCondition(
             new Time(new TimeOnly(1, 1, 1, 1, 1)),
-            new Time(new UShort(1),
+            new Time(
                 new UShort(1),
                 new UShort(1),
                 new UShort(1),
                 new UShort(1),
-                new UShort(1)),
+                new UShort(1),
+                new UShort(1)
+            ),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 2, 1, 1, 1)),
-            new Time(new TimeOnly(2, 1, 1, 1, 1)));
+            new Time(new TimeOnly(2, 1, 1, 1, 1))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -54,18 +59,21 @@ public sealed record BeforeConditionTests
     {
         IBool equality = new BeforeCondition(
             new Time(new TimeOnly(1, 1, 1, 1, 1)),
-            new Time(new UShort(1),
+            new Time(
                 new UShort(1),
                 new UShort(1),
                 new UShort(1),
                 new UShort(1),
-                new UShort(1)),
+                new UShort(1),
+                new UShort(1)
+            ),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 2, 1, 1, 1)),
             new Time(new TimeOnly(2, 1, 1, 1, 1)),
-            new Time(new TimeOnly(2, 1, 1, 1, 1)));
+            new Time(new TimeOnly(2, 1, 1, 1, 1))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -79,7 +87,8 @@ public sealed record BeforeConditionTests
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
-            new Time(new TimeOnly(1, 1, 1, 1, 1)));
+            new Time(new TimeOnly(1, 1, 1, 1, 1))
+        );
 
         Assert.True(equality.BoolValue);
     }
@@ -93,7 +102,8 @@ public sealed record BeforeConditionTests
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
-            new Time(new TimeOnly(1, 1, 1, 1, 2)));
+            new Time(new TimeOnly(1, 1, 1, 1, 2))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -109,18 +119,22 @@ public sealed record BeforeConditionTests
     public void ThrowsExceptionOnEmptyArguments()
     {
         IBool equality = new BeforeCondition();
-        Assert.Throws<ArgumentException>(() => equality.BoolValue);
+        _ = Assert.Throws<ArgumentException>(() => equality.BoolValue);
     }
 
     [Fact]
     public void ThrowsExceptionOnGetHashCode()
     {
-        Assert.Throws<NotSupportedException>(() => new BeforeCondition(new RandomTime()).GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new BeforeCondition(new RandomTime()).GetHashCode()
+        );
     }
 
     [Fact]
     public void ThrowsExceptionOnToString()
     {
-        Assert.Throws<NotSupportedException>(() => new BeforeCondition(new RandomTime()).ToString());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new BeforeCondition(new RandomTime()).ToString()
+        );
     }
 }

@@ -1,4 +1,4 @@
-﻿using Pure.Primitives.Abstractions.Time;
+using Pure.Primitives.Abstractions.Time;
 
 namespace Pure.Primitives.Time.Operations;
 
@@ -32,11 +32,8 @@ internal sealed record TimeComparer : IComparer<ITime>
         }
 
         result = first.Microsecond.NumberValue.CompareTo(second.Microsecond.NumberValue);
-        if (result != 0)
-        {
-            return result;
-        }
-
-        return first.Nanosecond.NumberValue.CompareTo(second.Nanosecond.NumberValue);
+        return result != 0
+            ? result
+            : first.Nanosecond.NumberValue.CompareTo(second.Nanosecond.NumberValue);
     }
 }

@@ -1,4 +1,4 @@
-﻿using Pure.Primitives.Abstractions.Bool;
+using Pure.Primitives.Abstractions.Bool;
 using Pure.Primitives.Number;
 using Pure.Primitives.Random.Time;
 
@@ -14,7 +14,8 @@ public sealed record NotEqualConditionTests
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))));
+            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1)))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -24,7 +25,8 @@ public sealed record NotEqualConditionTests
     {
         IBool equality = new NotEqualCondition(
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))));
+            new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1)))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -46,7 +48,8 @@ public sealed record NotEqualConditionTests
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
             new Time(TimeOnly.FromTimeSpan(new TimeSpan(1, 1, 1))),
-            new RandomTime());
+            new RandomTime()
+        );
 
         Assert.True(equality.BoolValue);
     }
@@ -62,18 +65,22 @@ public sealed record NotEqualConditionTests
     public void ThrowsExceptionOnEmptyArguments()
     {
         IBool equality = new NotEqualCondition();
-        Assert.Throws<ArgumentException>(() => equality.BoolValue);
+        _ = Assert.Throws<ArgumentException>(() => equality.BoolValue);
     }
 
     [Fact]
     public void ThrowsExceptionOnGetHashCode()
     {
-        Assert.Throws<NotSupportedException>(() => new NotEqualCondition(new RandomTime()).GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new NotEqualCondition(new RandomTime()).GetHashCode()
+        );
     }
 
     [Fact]
     public void ThrowsExceptionOnToString()
     {
-        Assert.Throws<NotSupportedException>(() => new NotEqualCondition(new RandomTime()).ToString());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new NotEqualCondition(new RandomTime()).ToString()
+        );
     }
 }
