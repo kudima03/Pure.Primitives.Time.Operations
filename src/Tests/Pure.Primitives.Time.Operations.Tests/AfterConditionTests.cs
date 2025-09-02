@@ -1,5 +1,4 @@
-﻿using Pure.Primitives.Abstractions.Bool;
-using Pure.Primitives.Number;
+using Pure.Primitives.Abstractions.Bool;
 using Pure.Primitives.Random.Time;
 
 namespace Pure.Primitives.Time.Operations.Tests;
@@ -14,7 +13,8 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
-            new Time(new TimeOnly(1, 2, 3, 4, 5)));
+            new Time(new TimeOnly(1, 2, 3, 4, 5))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -24,7 +24,8 @@ public sealed record AfterConditionTests
     {
         IBool equality = new AfterCondition(
             new Time(new TimeOnly(1, 2, 3, 4, 5)),
-            new Time(new TimeOnly(1, 2, 3, 4, 5)));
+            new Time(new TimeOnly(1, 2, 3, 4, 5))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -38,7 +39,8 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 2, 1, 1, 1)),
-            new Time(new TimeOnly(2, 1, 1, 1, 1)));
+            new Time(new TimeOnly(2, 1, 1, 1, 1))
+        );
 
         Assert.True(equality.BoolValue);
     }
@@ -52,7 +54,8 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
-            new Time(new TimeOnly(1, 1, 1, 1, 1)));
+            new Time(new TimeOnly(1, 1, 1, 1, 1))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -66,7 +69,8 @@ public sealed record AfterConditionTests
             new Time(new TimeOnly(1, 1, 2, 1, 1)),
             new Time(new TimeOnly(1, 1, 1, 2, 1)),
             new Time(new TimeOnly(1, 1, 1, 1, 2)),
-            new Time(new TimeOnly(1, 1, 1, 1, 2)));
+            new Time(new TimeOnly(1, 1, 1, 1, 2))
+        );
 
         Assert.False(equality.BoolValue);
     }
@@ -82,18 +86,22 @@ public sealed record AfterConditionTests
     public void ThrowsExceptionOnEmptyArguments()
     {
         IBool equality = new AfterCondition();
-        Assert.Throws<ArgumentException>(() => equality.BoolValue);
+        _ = Assert.Throws<ArgumentException>(() => equality.BoolValue);
     }
 
     [Fact]
     public void ThrowsExceptionOnGetHashCode()
     {
-        Assert.Throws<NotSupportedException>(() => new AfterCondition(new RandomTime()).GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new AfterCondition(new RandomTime()).GetHashCode()
+        );
     }
 
     [Fact]
     public void ThrowsExceptionOnToString()
     {
-        Assert.Throws<NotSupportedException>(() => new AfterCondition(new RandomTime()).ToString());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new AfterCondition(new RandomTime()).ToString()
+        );
     }
 }
