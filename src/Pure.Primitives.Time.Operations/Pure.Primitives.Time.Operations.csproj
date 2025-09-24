@@ -16,6 +16,6 @@
     <PackageProjectUrl>https://github.com/kudima03/Pure.Primitives.Time.Operations</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Pure.Primitives.Abstractions" Version="4.0.7" />
+    <PackageReference Include="Pure.Primitives.Abstractions" Version="4.0.11" />
   </ItemGroup>
 </Project>
