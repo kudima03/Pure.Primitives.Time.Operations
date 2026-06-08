@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsAotCompatible>true</IsAotCompatible>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <PackageValidationBaselineVersion>0.4.0</PackageValidationBaselineVersion>
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>Pure.Primitives.Time.Operations</PackageId>
