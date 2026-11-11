@@ -6,6 +6,18 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [0.5.0] — 2026-11-11
+
+### Added
+
+- Package now also targets `net11.0` (targets are `net7.0`, `net8.0`,
+  `net9.0`, `net10.0`, and `net11.0`).
+
+### Changed
+
+- The package README is now included in the NuGet package.
+- Updated `Pure.Primitives` dependencies to their .NET 11 releases.
+
 ## [0.4.0] — 2025-11-23
 
 ### Changed
